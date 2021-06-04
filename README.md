@@ -16,3 +16,4 @@ Retrieve data from site https://www.balldontlie.io/#players and returns csv file
 ## Todo
  - Encrypt parameters
  - Automatic tests
+ - clean folder target

@@ -24,7 +24,9 @@ const insetPlayerRow = 'insert into players (id,first_name,last_name, position, 
 const selectAllTeams = 'select * from teams'
 const selectAllPlayers = 'select * from players'
 
-const updateTeam = 'update teams set '
+const insertOnDuplicateTeam = 'INSERT INTO teams (id,abbreviation,city,conference,division,full_name,name) VALUES (?,?,?,?,?,?,?) \
+    ON DUPLICATE KEY UPDATE abbreviation=?,city=?,conference=?,division=?,full_name=?,name=?;'
+
 const updatePlayer = 'update players  \
                       set first_name =?, \
                         last_name=?,  \
@@ -42,5 +44,6 @@ module.exports = {
     insetPlayerRow,
     selectAllTeams,
     selectAllPlayers,
-    updatePlayer
+    updatePlayer,
+    insertOnDuplicateTeam
 }

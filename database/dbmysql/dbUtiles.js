@@ -138,10 +138,44 @@ const updatePlayer = async function updatePlayer(item) {
   }
 
 }
+
+const updateOnDupTeams = async function updateOnDupTeams(item) {
+  const values = [
+    item.id,
+    item.abbreviation,
+    item.city,
+    item.conference,
+    item.division,
+    item.full_name,
+    item.name,
+    item.abbreviation,
+    item.city,
+    item.conference,
+    item.division,
+    item.full_name,
+    item.name]
+
+  const con = await createConnection()
+  try {
+    await con.connect()
+    await con.query(dbSchema.insertOnDuplicateTeam, values)
+    await con.commit()
+
+  } catch (e) {
+    await con.rollback()
+    console.log(`Error: ${e}`)
+
+  } finally {
+    await con.end()
+  }
+
+
+}
 module.exports = {
   createConnection,
   createSchema,
   initSchema,
   selectAllPlayers,
-  updatePlayer
+  updatePlayer,
+  updateOnDupTeams
 }
