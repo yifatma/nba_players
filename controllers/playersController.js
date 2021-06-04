@@ -1,6 +1,6 @@
 const fs = require('fs')
-const { parsePlayerResult } = require('../utils/csvUtil')
-const nbaSiteUtil = require('../utils/nbaSiteUtil')
+const nbaSiteUtil = require('../objFactory').nbaSiteUtil
+const fileParser = require('../objFactory').fileParser
 
 const { URL_NUMBER_OF_PLAYERS,
     PLAYER_FILE_NAME,
@@ -17,7 +17,7 @@ module.exports = function (app) {
 
             const response = await nbaSiteUtil.getNBAPlayers()
 
-            const result = await parsePlayerResult(response.data)
+            const result = await fileParser.parsePlayerResult(response.data)
 
             fs.writeFile(fileFullName, result, function writeFile(err) {
                 if (err) throw err

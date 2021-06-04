@@ -1,14 +1,13 @@
 const axios = require('axios')
-const objFactory = require('../objFactory')
+const dbUtil = require('../objFactory').dbUtils
 const { URL_NUMBER_OF_PLAYERS } = require('../constants')
-const nbaSiteUtil = require('../utils/nbaSiteUtil')
+const nbaSiteUtil = require('../objFactory').nbaSiteUtil
 
 
 const initData = async function initData() {
 
     try {
         const response = await nbaSiteUtil.getNBAPlayers()
-        const dbUtil = objFactory.getDBUtils()
         await dbUtil.initSchema(response.data.data)
 
     } catch (err) {
