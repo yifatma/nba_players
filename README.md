@@ -1,2 +1,2 @@
-# nba_players
-nba_players program
+# NBA players
+NBA players program

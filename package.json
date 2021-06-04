@@ -1,0 +1,24 @@
+{
+  "name": "compie",
+  "version": "1.0.0",
+  "description": "NBA Task",
+  "main": "app.js",
+  "scripts": {
+    "server": "node -r dotenv/config --inspect=5858  --nolazy ./app.js ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yifat Mayron Hophy",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fast-csv": "^4.3.6",
+    "fs": "*",
+    "jsonexport": "^3.2.0",
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "node-cron": "^3.0.0"
+  }
+}
