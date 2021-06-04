@@ -7,6 +7,8 @@ class ObjFactory {
         //     throw ('This appliaction support only MONGODB.')
         // }
         this.dbUtils = require('./database/dbmysql/dbUtiles')
+        this.nbaSiteUtil = require('./utils/nbaSiteUtil')
+        this.fileParser = require('./utils/csvUtil')
     }
 
     getDBUtils() {

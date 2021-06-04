@@ -1,4 +1,3 @@
-// const URL_NUMBER_OF_PLAYERS = 9
 
 module.exports = {
     URL_NUMBER_OF_PLAYERS: 9,

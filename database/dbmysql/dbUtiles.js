@@ -76,7 +76,7 @@ const initSchema = async function initSchema(dataArr) {
 
   try {
     await con.connect()
-    const rows = await con.query('select * from teams')
+    const rows = await con.query(dbSchema.selectAllTeams)
 
     if (rows[0].length > 0)
       return
@@ -94,9 +94,54 @@ const initSchema = async function initSchema(dataArr) {
   }
 }
 
+const selectAllPlayers = async function selectAllPlayers() {
+  const con = await createConnection()
 
+  try {
+    await con.connect()
+    const list = await con.query(dbSchema.selectAllPlayers)
+    return list[0]
+
+  } catch (e) {
+    console.log(`Error: ${e}`)
+    throw e
+
+  } finally {
+    await con.end()
+  }
+}
+
+const updatePlayer = async function updatePlayer(item) {
+
+  const values = [
+    item.first_name,
+    item.last_name,
+    item.position,
+    item.height_feet,
+    item.height_inches,
+    item.weight_pounds,
+    item.team_id,
+    item.id]
+
+  const con = await createConnection()
+  try {
+    await con.connect()
+    await con.query(dbSchema.updatePlayer, values)
+    await con.commit()
+
+  } catch (e) {
+    await con.rollback()
+    console.log(`Error: ${e}`)
+
+  } finally {
+    await con.end()
+  }
+
+}
 module.exports = {
   createConnection,
   createSchema,
-  initSchema
+  initSchema,
+  selectAllPlayers,
+  updatePlayer
 }

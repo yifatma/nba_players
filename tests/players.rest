@@ -1,5 +1,3 @@
 ### Test case
 GET http://localhost:3000/player
 
-### Test case 
-GET http://localhost:3000/player/init

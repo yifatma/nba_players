@@ -14,6 +14,20 @@ const getNBAPlayers = async function getNBAPlayers() {
     }
 }
 
+const getPlayer = async function getPlayer(playerID) {
+    try {
+        return axios({
+            method: 'get',
+            url: `https://www.balldontlie.io/api/v1/players/${playerID}`,
+            responseType: 'json'
+        })
+    } catch (e) {
+        console.log(`Error when retrieve data from NBA site: ${e}`)
+        throw e
+    }
+}
+
 module.exports = {
-    getNBAPlayers
+    getNBAPlayers,
+    getPlayer
 }

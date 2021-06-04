@@ -21,9 +21,26 @@ const playersTable = "create table if not exists players (id INT(11) NOT NULL, \
 const insetTeamRow = 'insert into teams (id,abbreviation,city,conference,division,full_name,name) values ?'
 const insetPlayerRow = 'insert into players (id,first_name,last_name, position, height_feet, height_inches,weight_pounds,team_id) values ? '
 
+const selectAllTeams = 'select * from teams'
+const selectAllPlayers = 'select * from players'
+
+const updateTeam = 'update teams set '
+const updatePlayer = 'update players  \
+                      set first_name =?, \
+                        last_name=?,  \
+                        position=?, \
+                        height_feet=?, \
+                        height_inches=?, \
+                        weight_pounds=?, \
+                        team_id=? \
+                      where id=?'
+
 module.exports = {
     teamsTable,
     playersTable,
     insetTeamRow,
-    insetPlayerRow
+    insetPlayerRow,
+    selectAllTeams,
+    selectAllPlayers,
+    updatePlayer
 }

@@ -11,4 +11,8 @@ It contains APIs and a schedual job
 ## APIs
 
 ### GET http://host:port/player
-Retrieve data from site https://www.balldontlie.io/#players and return csv file with this data
+Retrieve data from site https://www.balldontlie.io/#players and returns csv file with this data
+
+## Todo
+ - Encrypt parameters
+ - Automatic tests
