@@ -6,7 +6,7 @@ const nbaSiteUtil = require('../objFactory').nbaSiteUtil
 
 const updateData = async function updateData() {
     const playersList = await dbUtils.selectAllPlayers()
-    console.log(`running a task every minute`)
+    console.log(new Intl.DateTimeFormat('en-GB', { dateStyle: 'full', timeStyle: 'long' }).format(Date.now()) + ' - Run Job')
 
     await Promise.all(playersList.map(async (player) => {
         const sitePlayer = await nbaSiteUtil.getPlayer(player.id)
@@ -24,5 +24,5 @@ const updateData = async function updateData() {
     }))
 }
 
-cron.schedule('* * * * *', updateData)
+cron.schedule('*/15 * * * *', updateData)
 

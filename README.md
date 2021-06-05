@@ -8,6 +8,8 @@ It contains APIs and a schedual job
 - npm install
 - npm run server
 
+Example of csv file exists under the test directory.
+
 ## APIs
 
 ### GET http://host:port/player
